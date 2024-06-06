@@ -38,4 +38,16 @@ classes = sorted(set(classes))
 # print(f"words: {words}")
 # print(f"classes: {classes}")
 
+training = []
+outputEmpty = [0] * len(classes)
 
+for doc in documents:
+    contain = []
+    patternWords = [lemmatizer.lemmatize(word.lower()) for word in doc[0]]
+
+    for word in words:
+        contain.append(1) if word in patternWords else contain.append(0)
+
+    output = list (outputEmpty)
+    output[classes.index(doc[1])] = 1
+    training.append([contain, output])
