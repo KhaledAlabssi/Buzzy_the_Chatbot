@@ -1,6 +1,8 @@
 import json
 import nltk
 from nltk.stem import WordNetLemmatizer
+import numpy as np
+import random
 
 # load data
 with open('intents.json') as file:
@@ -51,3 +53,9 @@ for doc in documents:
     output = list (outputEmpty)
     output[classes.index(doc[1])] = 1
     training.append([contain, output])
+
+random.shuffle(training)
+training = np.array(training, dtype=object)
+
+trining_x = np.array(list(training[:, 0]))
+trining_y = np.array(list(training[:, 1]))
