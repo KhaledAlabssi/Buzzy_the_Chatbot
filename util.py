@@ -19,7 +19,7 @@ def bow(sentence, words):
                 container[i] = 1
     return np.array(container)
 
-def predict_class (sentence, model):
+def predict_class (sentence, model, words, classes):
     p = bow(sentence, words)
     res = model.predict(np.array([p]))[0]
     err_threshold = 0.25

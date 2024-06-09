@@ -4,7 +4,7 @@ from tensorflow.keras.layers import Dense, Dropout
 
 def build(input, output):
     model = Sequential()
-    model.add(Dense(128, input=(input,), activation='relu'))
+    model.add(Dense(128, input_shape=(input,), activation='relu'))
     model.add(Dropout(0.5))
     model.add(Dense(64, activation='relu'))
     model.add(Dropout(0.5))

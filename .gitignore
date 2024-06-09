@@ -2,3 +2,4 @@ env/*
 intents.json
 *.h5
 *.pkl
+__*
