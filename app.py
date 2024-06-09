@@ -106,3 +106,17 @@ def predict_class (sentence, model):
         res_list.append({"intent": classes[r[0]], "probability": str(r[1])})
     return res_list
 
+
+def get_response(intent_list, intents):
+    label = intent_list[0]['intent']
+    intents_collection = intents['intents']
+    for i in intents_collection:
+        if i['tag'] == label:
+            result = random.choice(i['responses'])
+            break
+    return result
+
+
+find_class = predict_class("hello", model)
+answer = get_response(find_class, data)
+print("Answer: ", answer)
