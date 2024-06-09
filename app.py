@@ -1,20 +1,8 @@
-import tensorflow as tf
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Dropout
+
  
-model = Sequential()
-model.add(Dense(128, input_shape=(len(trining_x[0]),), activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(64, activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(len(trining_y[0]), activation='softmax'))
 
-model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-history = model.fit(trining_x, trining_y, epochs=200, batch_size=5, verbose=1)
-model.save('chatbot_model.h5')
 
-pickle.dump(words, open('words.pkl', 'wb'))
-pickle.dump(classes, open('classes.pkl', 'wb'))
+
 
 
 def clean_sentence(sentence):

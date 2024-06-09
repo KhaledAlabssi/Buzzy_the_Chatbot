@@ -52,3 +52,7 @@ def preprocessing(data):
     trining_y = np.array(list(training[:, 1]))
 
     return trining_x, trining_y, words, classes
+
+def finalize_data(words, classes):
+    pickle.dump(words, open('words.pkl', 'wb'))
+    pickle.dump(classes, open('classes.pkl', 'wb'))
